@@ -39,7 +39,8 @@
 | `price` | 按所在城市门店手工补录价格 | 「我们这儿板烧 22.5」 |
 | `refresh` | 把 MCP 拉到的实时数据合并进本地数据集 | 「刷新麦当劳数据」 |
 
-`mcp_client.py` 另提供 `ping` / `tools` / `nutrition` / `meals` / `sync` / `call`，直接对话麦当劳官方 MCP。
+此外 `mcp_client.py` 提供 `ping` / `tools` / `nutrition` / `meals` / `sync` / `call`，直接对话麦当劳官方 MCP；
+`build_report.py` 生成**单文件 HTML 速查表**，零外部依赖、可直接分享。
 
 ---
 
@@ -154,13 +155,23 @@ mcd-cut-coach/
     ├── SKILL.md                   # Skill 主脑：意图路由与输出规范
     ├── scripts/
     │   ├── mcd.py                 # 主计算器：rank / cut / combo / compare / price / refresh
-    │   └── mcp_client.py          # 麦当劳官方 MCP 客户端（零依赖）
+    │   ├── mcp_client.py          # 麦当劳官方 MCP 客户端（零依赖）
+    │   └── build_report.py        # 生成单文件 HTML 速查表报告
     └── references/
         ├── menu-nutrition.json    # 官方营养数据集
         ├── cut-playbook.md        # 减脂手册：热量预算 / 三硬指标 / 红黄绿灯 / 场景方案
         ├── mcp-tools.md           # MCP 工具契约与踩坑清单
         └── price-overrides.json   # 门店价格补录表
+└── examples/
+    ├── demo-output.md             # 命令输出示例
+    └── cut-guide.html             # 可视化速查表（单文件，可直接打开）
 ```
+
+---
+
+## 效果预览
+
+运行 `python skill/scripts/build_report.py` 会生成 `examples/cut-guide.html`：一张浅色护眼的**控卡点餐速查表**，含推荐单品榜与按价格升序榜，红黄绿灯一眼可辨。单文件、零外部依赖、离线可用，直接双击打开即可查看。
 
 ---
 

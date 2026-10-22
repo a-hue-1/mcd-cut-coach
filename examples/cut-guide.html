@@ -1,0 +1,93 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>麦麦控卡教练 · 控卡点餐速查表</title>
+<style>
+:root{
+  --bg:#f6f3ee; --card:#fffdf9; --ink:#2f2a24; --ink2:#6b6257;
+  --line:#e4ddd2; --accent:#c8442b; --accent2:#2f6f4e; --accent3:#b8862b;
+  --green:#3f8f5f; --yellow:#c99a2e; --red:#c8442b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:32px 20px 64px}
+header{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  padding:28px 28px 22px;margin-bottom:22px}
+h1{margin:0 0 6px;font-size:26px;letter-spacing:.5px}
+.sub{color:var(--ink2);font-size:14px;margin:0}
+.meta{margin-top:14px;font-size:12px;color:var(--ink2);
+  border-top:1px dashed var(--line);padding-top:12px}
+h2{font-size:18px;margin:28px 0 12px;display:flex;align-items:center;gap:8px}
+h2::before{content:"";width:4px;height:16px;background:var(--accent);border-radius:2px}
+.lead{color:var(--ink2);font-size:13px;margin:-4px 0 12px}
+table{width:100%;border-collapse:collapse;background:var(--card);
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;font-size:13px}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line)}
+th{background:#efe9e0;font-weight:700;font-size:12px;color:var(--ink2);white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:#fbf7f1}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.sec{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:18px}
+ol,ul{padding-left:20px;margin:8px 0}
+li{margin:4px 0;font-size:14px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink2)}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.tip{background:#f2f6f3;border-left:3px solid var(--accent2);
+  padding:10px 14px;border-radius:6px;font-size:13px;margin:12px 0}
+.warn{background:#fdf4ee;border-left:3px solid var(--accent);
+  padding:10px 14px;border-radius:6px;font-size:13px;margin:12px 0}
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:12px;color:var(--ink2)}
+code{background:#efe9e0;padding:1px 5px;border-radius:4px;font-size:12px}
+.bar{display:inline-block;height:6px;border-radius:3px;background:var(--accent3);vertical-align:middle}
+</style></head><body><div class="wrap">
+<header>
+<h1>🍔 麦麦控卡教练 · 控卡点餐速查表</h1>
+<p class="sub">身材管理期也能安心吃麦当劳 —— 热量、蛋白质、钠三指标并排看，避免「低卡高钠」陷阱。</p>
+<div class="meta">
+生成时间：2026-10-22 19:57　|　餐品数：120 项　|　有价格：34 项<br>
+营养数据来源：麦当劳官方 MCP <code>list-nutrition-foods</code>；价格来源：官方 MCP <code>query-meals</code>（门店 1420227）</div>
+</header>
+<h2>减脂点餐四铁律</h2>
+<div class="sec"><ol>
+<li><b>饮料换无糖 / 水 / 黑咖</b> —— 一餐立省 100~220 kcal，性价比最高的改动。</li>
+<li><b>薯条降级</b>：大 → 中 → 小 → 迷你 / 玉米杯。薯条钠不高但油多。</li>
+<li><b>钠警戒线</b>：单品 &gt;1000 mg 或整餐 &gt;1500 mg 时，当天其余两餐必须控盐。</li>
+<li><b>别为省几毛硬上套餐</b>：先算单点差价，再看捆绑的配餐是不是你真的需要的高热量项。</li>
+</ol></div>
+<h2>推荐单品 · ≤500 kcal · 预算 ≤¥40 · 蛋白 ≥20 g</h2>
+<p class="lead">按「蛋白密度」（每 100 kcal 含多少克蛋白质）降序 —— 越靠前越抗饿。</p>
+<table><thead><tr><th>#</th><th>餐品</th><th class="num">价格</th><th class="num">kcal</th><th class="num">蛋白 g</th><th class="num">脂肪 g</th><th class="num">钠 mg</th><th class="num">蛋白密度</th><th>灯</th></tr></thead><tbody>
+<tr><td>1</td><td>双层吉士汉堡</td><td class="num">¥26.5</td><td class="num">429</td><td class="num">27.0</td><td class="num">22.0</td><td class="num">1017.0</td><td class="num">6.3</td><td>🔴</td></tr>
+<tr><td>2</td><td>那么大鸡排（椒盐风味）</td><td class="num">¥15.0</td><td class="num">385</td><td class="num">24.0</td><td class="num">21.0</td><td class="num">996.0</td><td class="num">6.2</td><td>🟡</td></tr>
+<tr><td>3</td><td>板烧鸡腿堡</td><td class="num">¥27.0</td><td class="num">391</td><td class="num">23.0</td><td class="num">17.0</td><td class="num">1041.0</td><td class="num">5.9</td><td>🔴</td></tr>
+<tr><td>4</td><td>双层深海鳕鱼堡</td><td class="num">¥28.0</td><td class="num">485</td><td class="num">28.0</td><td class="num">21.0</td><td class="num">917.0</td><td class="num">5.8</td><td>🟡</td></tr>
+<tr><td>5</td><td>不素之霸双层牛堡</td><td class="num">¥29.5</td><td class="num">493</td><td class="num">28.0</td><td class="num">27.0</td><td class="num">1012.0</td><td class="num">5.7</td><td>🔴</td></tr>
+<tr><td>6</td><td>培根蔬萃双层牛堡</td><td class="num">¥26.5</td><td class="num">442</td><td class="num">24.0</td><td class="num">23.0</td><td class="num">728.0</td><td class="num">5.4</td><td>🟡</td></tr>
+<tr><td>7</td><td>麦辣鸡腿汉堡</td><td class="num">¥26.0</td><td class="num">485</td><td class="num">24.0</td><td class="num">24.0</td><td class="num">1208.0</td><td class="num">4.9</td><td>🔴</td></tr>
+</tbody></table>
+<h2>按价格升序 · 便宜优先</h2>
+<p class="lead">预算敏感时先看这张表。注意：便宜不等于低卡，两列要一起看。</p>
+<table><thead><tr><th>#</th><th>餐品</th><th class="num">价格</th><th class="num">kcal</th><th class="num">蛋白 g</th><th class="num">钠 mg</th><th class="num">g蛋白/元</th><th>灯</th></tr></thead><tbody>
+<tr><td>1</td><td>圆筒冰淇淋</td><td class="num">¥5.0</td><td class="num">93</td><td class="num">2.0</td><td class="num">36.0</td><td class="num">0.4</td><td>🟢</td></tr>
+<tr><td>2</td><td>薯条(迷你)</td><td class="num">≈¥6.0</td><td class="num">106</td><td class="num">2.0</td><td class="num">61.0</td><td class="num">0.33</td><td>🟢</td></tr>
+<tr><td>3</td><td>苹果片</td><td class="num">¥7.5</td><td class="num">32</td><td class="num">0.0</td><td class="num">0.0</td><td class="num">0.0</td><td>🟢</td></tr>
+<tr><td>4</td><td>无糖可口可乐(小)</td><td class="num">≈¥8.0</td><td class="num">0</td><td class="num">0.0</td><td class="num">25.0</td><td class="num">0.0</td><td>🟢</td></tr>
+<tr><td>5</td><td>玉米杯(小)</td><td class="num">≈¥8.0</td><td class="num">53</td><td class="num">2.0</td><td class="num">1.0</td><td class="num">0.25</td><td>🟢</td></tr>
+<tr><td>6</td><td>雪碧(小)</td><td class="num">≈¥8.0</td><td class="num">76</td><td class="num">0.0</td><td class="num">21.0</td><td class="num">0.0</td><td>🟢</td></tr>
+<tr><td>7</td><td>可口可乐(小)</td><td class="num">≈¥8.0</td><td class="num">107</td><td class="num">0.0</td><td class="num">0.0</td><td class="num">0.0</td><td>🟢</td></tr>
+<tr><td>8</td><td>无糖可口可乐(中)</td><td class="num">≈¥9.0</td><td class="num">0</td><td class="num">0.0</td><td class="num">35.0</td><td class="num">0.0</td><td>🟢</td></tr>
+<tr><td>9</td><td>纯悦</td><td class="num">¥9.0</td><td class="num">0</td><td class="num">0.0</td><td class="num">0.0</td><td class="num">0.0</td><td>🟢</td></tr>
+<tr><td>10</td><td>雪碧(中)</td><td class="num">≈¥9.0</td><td class="num">105</td><td class="num">0.0</td><td class="num">29.0</td><td class="num">0.0</td><td>🟢</td></tr>
+</tbody></table>
+<div class="sec"><div class="legend">
+<span>🟢 绿灯：热量 &lt;450 kcal 且 钠 &lt;700 mg 且 脂肪 &lt;25 g</span>
+<span>🟡 黄灯：居中，注意分量</span>
+<span>🔴 红灯：热量 ≥600 或 钠 ≥1000 或 脂肪 ≥35</span>
+</div></div>
+<div class="tip">💡 想看实时价格？配好 MCP 后运行 <code>python skill/scripts/mcp_client.py sync --store 你的门店编码</code>，价格覆盖会自动拉满。</div>
+<footer>
+本项目为 <b>2026 麦当劳程序员创意开发大赛参赛作品</b>，由参赛者独立开发，<b>非麦当劳官方产品</b>。输出仅供参考，<b>不构成医疗、营养或其他专业建议</b>；餐品信息、价格及供应状态以麦当劳官方渠道的实时结果为准。
+</footer>
+</div></body></html>
