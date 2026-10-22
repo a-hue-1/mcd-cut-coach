@@ -1,14 +1,14 @@
 ---
-name: mcd-calorie
+name: mcd-cut-coach
 description: |
   Use when the user asks about McDonald's China (麦当劳) calories, nutrition, 热量, 卡路里,
   减脂/减肥/控卡 点什么, 麦当劳价格 排序, 蛋白质性价比, 钠含量, 套餐搭配, or wants a
   McDonald's order plan under a calorie or budget cap. Also triggers on 麦麦/麦门/巨无霸/
   板烧/麦辣/麦旋风/随心配. Computes from a local official-nutrition dataset and can
-  refresh live prices/calories via the mcd-mcp MCP server (mcp.mcd.cn).
+  call the official McDonald's MCP server (mcp.mcd.cn) live for nutrition and store prices.
 ---
 
-# 麦当劳热量 × 价格 点餐助手
+# 麦麦控卡教练 · 麦当劳热量 × 价格 点餐助手
 
 结论先行、三指标并排、价格标注来源。这是数据计算工具，不是营养处方。
 
@@ -44,8 +44,19 @@ description: |
 
 ### 升级到 L1
 
-老大说「配麦当劳 MCP」「刷新麦当劳数据」时，按 `references/mcp-tools.md` 末节执行：
-申请 Token → 写 `~/.workbuddy/mcp.json` → 连接器页信任启用 → 跑 `refresh`。
+老大说「配麦当劳 MCP」「刷新麦当劳数据」时，执行：
+
+```bash
+export MCD_MCP_TOKEN='你的Token'
+python scripts/mcp_client.py ping                    # 自检：端点、会话、工具清单
+python scripts/mcp_client.py sync --store 1420227     # 拉取营养库 + 门店实时价并合并
+```
+
+客户端 `scripts/mcp_client.py` 为**零第三方依赖**实现，完整走 MCP Streamable HTTP 四步握手
+（`initialize` → `notifications/initialized` → `tools/list` → `tools/call`），
+并对「字段说明 + `## Original Response` + JSON」混合返回体做了健壮解析。
+
+MCP 配置模板见仓库根目录 `mcp-config.example.json`（仅含 `${MCD_MCP_TOKEN}` 占位符）。
 
 ---
 
@@ -54,7 +65,7 @@ description: |
 ### ① 「减脂吃什么」/「减肥点什么」/「控卡推荐」
 
 ```
-python ~/.workbuddy/skills/mcd-calorie/scripts/mcd.py cut --kcal-cap 500 --budget 30
+python ~/.workbuddy/skills/mcd-cut-coach/scripts/mcd.py cut --kcal-cap 500 --budget 30
 ```
 
 - 先问或自行设定：`--kcal-cap`（默认 500）、`--min-protein`（默认 20）
@@ -101,6 +112,15 @@ python .../mcd.py compare --items "巨无霸,麦辣鸡腿汉堡"
 python .../mcd.py price --set "板烧鸡腿堡=22.5,巨无霸=25.5" --show
 ```
 写入 `references/price-overrides.json`，后续计算自动生效。
+
+### ⑦ 「出个速查表」/「生成报告」/「导出」
+
+```
+python .../scripts/build_report.py -o examples/cut-guide.html --kcal-cap 500
+```
+
+产出**单文件 HTML**：浅色护眼版式、推荐单品榜 + 按价格升序榜、红黄绿灯图例，
+零外部依赖、离线可用，可直接打开或分享。
 
 ---
 
