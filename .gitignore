@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.env
+*.token
+# 真实 MCP 配置（含密钥）永不入库，仓库只提供 mcp-config.example.json
+mcp-config.json
+.DS_Store
